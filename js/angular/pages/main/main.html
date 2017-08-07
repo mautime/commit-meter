@@ -25,24 +25,37 @@
 			</md-list>
 		</md-content>
 	</md-sidenav>
-	<div flex layout="column">
-		<md-toolbar class="app-top-toolbar" style="background-color: rgb(250,250,250); color: #757575 !important;">
-		    <div class="md-toolbar-tools">
-		    	<button class="md-icon-button md-button md-ink-ripple hide-gt-sm" type="button" ng-click="$ctrl.openMenu()" hide-gt-sm aria-label="Toggle Menu">
-				    <md-icon class="material-icons"aria-hidden="true">menu</md-icon>
-				    <div class="md-ripple-container"></div>
-				</button>
-		        <div flex md-truncate class="md-title">Home</div>
+	<div layout="column" flex>
+      
+         <md-toolbar class="app-top-toolbar" style="background-color: rgb(250,250,250); color: #757575 !important;">
+          <div class="md-toolbar-tools">
+            <button class="md-icon-button md-button md-ink-ripple hide-gt-sm" type="button" ng-click="$ctrl.openMenu()" hide-gt-sm aria-label="Toggle Menu">
+                <md-icon class="material-icons"aria-hidden="true">menu</md-icon>
+                <div class="md-ripple-container"></div>
+            </button>
+              <div flex md-truncate class="md-title">Home</div>
+          </div>
+          
+      </md-toolbar>
+      <md-fab-speed-dial md-direction="left" md-open="isOpen"
+                       class="md-scale md-fab-top-right" ng-class="md-hover-full"
+                       ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false" style="top: 7px">
+                  <md-fab-trigger>
+                  <a href="#">
+                  <img src="images/user.jpg" class="demo-avatar">
+                  </a>
+                  </md-fab-trigger>
 
-		        <md-button class="md-icon-button" aria-label="Favorite">
-		            <md-icon class="material-icons">home</md-icon>
-		        </md-button>
+                  <md-fab-actions>
+                     <md-button aria-label="userMenu-option1" class="md-fab md-raised md-mini">
+                        <md-tooltip md-direction="down" md-visible="tooltipVisible" md-autohide="false">Settings</md-tooltip>
 
-		        <md-button class="md-icon-button" aria-label="More">
-		            <md-icon class="material-icons">more_vert</md-icon>
-		        </md-button>
-		    </div>
-		</md-toolbar>
+                        <md-icon class="material-icon" aria-label="userMenu-options-settings">settings</md-icon>
+                      </md-button>
+                  </md-fab-actions>
+    </md-fab-speed-dial>
+      
+		
 		<md-content ui-view class="content-wrapper _md" flex layout-column style="height: 100%;">
 		</md-content>
 	</div>
