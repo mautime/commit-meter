@@ -1,36 +1,41 @@
-<div class="mdl-grid">
-    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-    	<div class="mdl-cell--12-col mdl-grid" style="padding-bottom: 4em;">
-    		<div class="mdl-cell--6-col">
-                <md-input-container class="md-icon-float md-icon-right md-block" flex-gt-sm>
-                    <label>Plan Name</label>
-                    <input ng-model="plan.name"/>
-                </md-input-container>
-    		</div>
-    		<div class="mdl-cell--6-col" style="text-align: right;">
-    			<md-button md-no-ink class="md-primary" ng-click="$ctrl.addCategory()">Add Goal</md-button>
-    		</div>
-    	</div>
-		<div class="mdl-cell mdl-cell--6-col" ng-repeat="category in $ctrl.plan.categories" style="padding-bottom: 35px;">
-            <div layout-gt-sm="row">
-                <md-input-container class="md-icon-float md-icon-right" flex-gt-sm layout="row" layout-align="center center" layout-wrap>
-                    <label>Goal</label>
-                    <input ng-model="category.name"/>
-                </md-input-container>
-                <md-button md-no-ink class="md-primary" ng-click="$ctrl.addSubCategory(category)">Add</md-button>
-            </div>
-    		<div class="mdl-cell mdl-cell--12-col" ng-repeat="subCategory in category.subCategories">
-    			<md-input-container class="md-block" flex-gt-sm>
-                <label>Goal Task for {{category.name}}</label>
-                <input ng-model="subCategory.name"/>
+<md-content layout="column" flex class="layout-padding">
+    <md-content layout="row" flex layout-wrap>
+        <div layout="column" flex="50">
+            <md-input-container class="md-headline">
+                <label>Plan Name</label>
+                <input ng-model="plan.name"/>
             </md-input-container>
-    		</div>
-    	</div>
-    	
-    	<div class="mdl-cell mdl-cell--12-col" style="text-align: right">
-	    	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" ng-click="$ctrl.save()">
-				Save
-			</button>
-	    </div>
+        </div>
+        <div layout="column" layout-align="top end" flex="50">
+            <md-button class="md-fab md-primary md-hue-2" ng-click="$ctrl.addCategory(category)">
+                    <!-- below is the material icons -->
+                <md-icon class="material-icons">add</md-icon>
+            </md-button>
+        </div>
+    </md-content>
+    <md-content layout="row" flex layout-wrap>
+        <div layout="column" flex="50" ng-repeat="category in $ctrl.plan.categories">
+            <div layout="row">
+                <md-input-container flex class="md-icon-float md-block md-title">
+                    <label>Goal</label>
+                    <input type="text" ng-model="category.name" flex/>
+                </md-input-container>
+                <div>
+                    <md-button class="md-fab md-primary md-hue-2 md-mini" ng-click="$ctrl.addSubCategory(category)">
+                    <!-- below is the material icons -->
+                        <md-icon class="material-icons">add</md-icon>
+                    </md-button>
+                </div>
+            </div>  
+            <div layout="row" ng-repeat="subCategory in category.subCategories">
+                <md-input-container flex class="md-caption">
+                    <label>Goal Task</label>
+                    <input ng-model="subCategory.name"/>
+                </md-input-container>
+            </div>
+        </div>
+    </md-content>
+    <div layout="row" flex layout-align="end center">
+        <md-button class="md-raised  md-primary">Save</md-button>
     </div>
-</div>
+</md-content>

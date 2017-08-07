@@ -1,17 +1,9 @@
-<div class="mdl-grid demo-content">
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <highchart id="chart1" config="$ctrl.weeklyPlanProgressChartOptions" class="mdl-cell--12-col"></highchart>
-        <highchart id="chart1" config="$ctrl.weeklyPlanCategoryProgress" class="mdl-cell--12-col" style="padding-top: 100px;"></highchart>
+<md-content layout="column" class="content-panel">
+    <highchart id="chart1" config="$ctrl.weeklyPlanProgressChartOptions" class="mdl-cell--12-col" flex layout="column"></highchart>
+    <highchart id="chart2" config="$ctrl.weeklyPlanCategoryProgress" class="mdl-cell--12-col" flex layout="column" ></highchart>
+    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-raised  md-primary md-hue-1" ng-repeat="category in $ctrl.categories" ng-click="$ctrl.displayWeeklyPlanCategoryProgress(category.id)">{{category.name}}</md-button>
+    </div>
+</md-content>
 
-        <div class="mdl-cell--6-col mdl-grid mdl-typography--text-center">
-            <div ng-repeat="category in $ctrl.categories" class="md-cell--3-col">
-                <button class="mdl-button mdl-js-button mdl-button--primary" ng-click="$ctrl.displayWeeklyPlanCategoryProgress(category.id)">
-                    {{category.name}}
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <highchart id="chart2" config="$ctrl.overallPlanCategoryProgressChartOptions" class="mdl-cell--12-col"></highchart>
-    </div>
-</div>
+<highchart id="chart3" config="$ctrl.overallPlanCategoryProgressChartOptions" flex layout="column"></highchart>

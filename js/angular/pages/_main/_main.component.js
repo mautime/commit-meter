@@ -1,11 +1,15 @@
 (function(){
 	'use strict';
 
-	function mainController(){
+	function mainController($mdSidenav){
 		var vm = this;
 
 		vm.$onInit = function(){
 			console.log('mainController#$onInit');
+		}
+
+		vm.openMenu = function(){
+			$mdSidenav("left").toggle();
 		}
 	}
 

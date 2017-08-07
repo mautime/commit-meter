@@ -227,3 +227,26 @@ _:-ms-input-placeholder, :root .demo-graph {
     background-color: #00BCD4;
     color: #37474F !important;
 }
+
+md-content {
+	background-color: #FFFFFF;
+	color: #757575 !important;;
+}
+
+md-sidenav{
+	width: 280px;
+}
+
+.content-panel {
+    
+}
+
+.app-menu md-icon{
+	color: #78909c !important;
+	fill: #78909c !important;
+}
+
+.app-top-toolbar md-icon {
+	color: #757575 !important;
+	fill: #757575 !important;
+}
